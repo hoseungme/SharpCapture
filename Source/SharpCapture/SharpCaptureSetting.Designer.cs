@@ -111,6 +111,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SharpCaptureSetting";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "옵션";
             this.ResumeLayout(false);

@@ -51,7 +51,10 @@
             this.ClientSize = new System.Drawing.Size(536, 243);
             this.Controls.Add(this.Help);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SelectionCaptureHelp";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "도움말";
             this.ResumeLayout(false);

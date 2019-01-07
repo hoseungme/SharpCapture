@@ -53,7 +53,7 @@ namespace SharpCapture
             CaptureSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Bitmap ScreenBitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics ScreenGraphics = Graphics.FromImage(ScreenBitmap);
-            ScreenGraphics.CopyFromScreen(100, 100, 0, 0, CaptureSize);
+            ScreenGraphics.CopyFromScreen(0, 0, 0, 0, CaptureSize);
             Image ScreenImage = ScreenBitmap as Image;
             if (CopyClipBoard)
             {

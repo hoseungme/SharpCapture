@@ -42,6 +42,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "선택";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SelectionCapture_FormClosed);
             this.Load += new System.EventHandler(this.SelectionCapture_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SelectionCapture_MouseDown);
             this.ResumeLayout(false);

@@ -117,6 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Help.Text" xml:space="preserve">
+    <value>1. 캡처
+ - 전체캡처와 선택캡처로 나뉩니다. 전체캡처는 누르면 
+화면 전체를 캡처해서 띄워줍니다. 선택 캡처는 누른 후 
+화면을 드래그하여 캡처할 영역을 선택하면 됩니다.
+ESC키를 누르면 선택 캡처를 취소할 수 있습니다.
+2. 지연
+ - 지연을 설정하면 캡처를 시작하기 전 설정한 시간 만큼 
+대기합니다. 예를 들어 지연을 5초로 설정하고 캡처를 누르
+면 5초 뒤에 캡처합니다.
+
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

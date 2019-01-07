@@ -35,18 +35,6 @@ namespace SharpCapture
 
         private Thread GetMouseCursorThread;
 
-        private void FormClose()
-        {
-            GetMouseCursorThread.Abort();
-            if(Size.Width > 0 && Size.Height > 0)
-            {
-                OwnerForm.SelectionCapturePos = Location;
-                OwnerForm.CaptureSize = Size;
-                DialogResult = DialogResult.OK;
-            }
-            Close();
-        }
-
         private void GetMouseCursor()
         {
             while(true)
@@ -85,7 +73,7 @@ namespace SharpCapture
 
                     if ((GetAsyncKeyState(0x01) & 0x8000) != 0x8000)
                     {
-                        FormClose();
+                        Close();
                     }
                 }));
             }
@@ -110,6 +98,17 @@ namespace SharpCapture
                 IsBackground = true
             };
             GetMouseCursorThread.Start();
+        }
+
+        private void Selection_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            GetMouseCursorThread.Abort();
+            if (Size.Width > 0 && Size.Height > 0)
+            {
+                OwnerForm.SelectionCapturePos = Location;
+                OwnerForm.CaptureSize = Size;
+                DialogResult = DialogResult.OK;
+            }
         }
     }
 }

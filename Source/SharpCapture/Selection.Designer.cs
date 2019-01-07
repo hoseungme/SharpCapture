@@ -41,6 +41,7 @@
             this.Opacity = 0.5D;
             this.ShowInTaskbar = false;
             this.Text = "Selection";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Selection_FormClosed);
             this.Load += new System.EventHandler(this.Selection_Load);
             this.ResumeLayout(false);
 

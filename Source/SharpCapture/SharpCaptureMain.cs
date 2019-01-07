@@ -66,20 +66,25 @@ namespace SharpCapture
 
         private void SelectionCapture_Click(object sender, EventArgs e)
         {
+            Thread.Sleep(200);
+            Thread.Sleep(CaptureDelay);
             SelectionCapture SelectionCaptureForm = new SelectionCapture(ScreenOverlay);
             SelectionCaptureForm.Owner = this;
-            SelectionCaptureForm.ShowDialog();
-            Bitmap ScreenBitmap = new Bitmap(CaptureSize.Width, CaptureSize.Height);
-            Graphics ScreenGraphics = Graphics.FromImage(ScreenBitmap);
-            ScreenGraphics.CopyFromScreen(SelectionCapturePos.X, SelectionCapturePos.Y, 0, 0, CaptureSize);
-            Image ScreenImage = ScreenBitmap as Image;
-            if(CopyClipBoard)
+            if(SelectionCaptureForm.ShowDialog() == DialogResult.OK)
             {
-                Clipboard.SetImage(ScreenImage);
+                Bitmap ScreenBitmap = new Bitmap(CaptureSize.Width, CaptureSize.Height);
+                Graphics ScreenGraphics = Graphics.FromImage(ScreenBitmap);
+                ScreenGraphics.CopyFromScreen(SelectionCapturePos.X, SelectionCapturePos.Y, 0, 0, CaptureSize);
+                Image ScreenImage = ScreenBitmap as Image;
+                if (CopyClipBoard)
+                {
+                    Clipboard.SetImage(ScreenImage);
+                }
+                Visible = true;
+                ShowFullScreenCapture ShowFullScreenCaptureForm = new ShowFullScreenCapture(ScreenImage, CheckSave);
+                ShowFullScreenCaptureForm.ShowDialog();
             }
-            Visible = true;
-            ShowFullScreenCapture ShowFullScreenCaptureForm = new ShowFullScreenCapture(ScreenImage, CheckSave);
-            ShowFullScreenCaptureForm.ShowDialog();
+            
         }
 
         private void NoneCheck_Click(object sender, EventArgs e)

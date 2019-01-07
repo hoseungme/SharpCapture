@@ -18,6 +18,7 @@ namespace SharpCapture
         private static extern int RegisterHotKey(int hwnd, int id, int fsModifiers, int vk);
 
         private bool CancelFlag = false;
+        private bool CaptureFlag = false;
 
         private SharpCaptureMain MainForm;
 
@@ -64,6 +65,7 @@ namespace SharpCapture
                 SelectionForm.Owner = Owner;
                 if(SelectionForm.ShowDialog() == DialogResult.OK)
                 {
+                    CaptureFlag = true;
                     Close();
                 }
                 else
@@ -75,7 +77,7 @@ namespace SharpCapture
 
         private void SelectionCapture_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(!CancelFlag)
+            if(!CancelFlag && CaptureFlag)
             {
                 DialogResult = DialogResult.OK;
             }
